@@ -10,6 +10,8 @@ USERNAME=$1
 PASSWORD=$2
 DATABASE=$3
 
+/opt/vertica/bin/vsql -d $DATABASE -U $USERNAME -w $PASSWORD -c "DROP TABLE IF EXISTS analytics"
+
 /opt/vertica/bin/vsql -d $DATABASE -U $USERNAME -w $PASSWORD -c "CREATE TABLE analytics (ymdh DATETIME,
     state_id INT,
     advertiser_id INT,
