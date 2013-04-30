@@ -18,14 +18,13 @@ DATABASE=$3
     publisher_id INT,
     imps INT,
     clicks INT,
-    revenue NUMBER(6,6)
+    revenue NUMBER(12,6)
 );"
 
 for file in test_*.csv
 do
   echo "Importing $file"
-  tail -n +1 $file | /opt/vertica/bin/vsql -d $DATABASE -U $USERNAME -w $PASSWORD -c "COPY analytics(ymdh, state_id, advertiser_id, publisher_id, imps, clicks, revenue) FROM stdin DIRECT DELIMITER E',';"
-  year=`expr $year + 1`
-done
+  /opt/vertica/bin/vsql -d $DATABASE -U $USERNAME -w $PASSWORD -c "COPY analytics(ymdh, state_id, advertiser_id, publisher_id, imps, clicks, revenue) FROM '$PWD/$file' DIRECT DELIMITER ',' RECORD TERMINATOR E'\n' EXCEPTIONS '/tmp/vsql.err'; "
+done 
 
 echo "Done!"

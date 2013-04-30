@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 	        sprintf(filename, FILENAME_BASE, year, month);
 	        printf("%s\n", filename);
 	        fd = fopen(filename, "w");
-	        fprintf(fd, HEADER);
+	        //fprintf(fd, HEADER);
 	        for (day = 1; day <= NUM_DAYS; day++) {
 	            for (hour = 0; hour < NUM_HOURS; hour++) {
 	                for (state_id = 0; state_id < NUM_STATES; state_id++) {

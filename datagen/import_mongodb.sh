@@ -15,7 +15,7 @@ echo "db.analytics.drop()" | mongo $DATABASE
 for file in test_*.csv
 do
   echo "Importing $file"
-  mongoimport -c analytics -d $DATABASE --headerline --type csv --file $file
+  mongoimport -c analytics -d $DATABASE -f ymdh,state_id,advertiser_id,publisher_id,imps,clicks,revenue --type csv --file $file
   year=`expr $year + 1`
 done
 
