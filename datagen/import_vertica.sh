@@ -21,10 +21,12 @@ DATABASE=$3
     revenue NUMBER(12,6)
 );"
 
+echo "Start import: " `date`
+
 for file in test_*.csv
 do
   echo "Importing $file"
   /opt/vertica/bin/vsql -d $DATABASE -U $USERNAME -w $PASSWORD -c "COPY analytics(ymdh, state_id, advertiser_id, publisher_id, imps, clicks, revenue) FROM '$PWD/$file' DIRECT DELIMITER ',' RECORD TERMINATOR E'\n' EXCEPTIONS '/tmp/vsql.err'; "
 done 
 
-echo "Done!"
+echo "Done: " `date`

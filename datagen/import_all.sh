@@ -1,5 +1,6 @@
 #!/bin/sh
 
-time ./import_mysql.sh test test test
-time ./import_vertica.sh dbadmin password test
-time ./import_mongo.sh test test test
+./import_mysql.sh test test test
+./import_vertica.sh dbadmin password test
+./import_mongodb.sh test test test
+./import_hive.sh

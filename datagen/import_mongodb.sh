@@ -12,6 +12,8 @@ DATABASE=$3
 
 echo "db.analytics.drop()" | mongo $DATABASE
 
+echo "Start import: " `date`
+
 for file in test_*.csv
 do
   echo "Importing $file"
@@ -19,10 +21,11 @@ do
   year=`expr $year + 1`
 done
 
+echo "Start indexing: " `date`
 for i in ymdh state_id advertiser_id publisher_id
 do
   echo "Indexing $i..."
   echo "db.analytics.ensureIndex({\"$i\":1})" | mongo $DATABASE
 done
 
-echo "Done!"
+echo "Done: " `date`
