@@ -10,7 +10,7 @@ USERNAME=$1
 PASSWORD=$2
 DATABASE=$3 
 
-echo "db.analytics.aggregate(
+echo 'db.analytics.aggregate(
   { 
     $project: {
       "imps":1
@@ -22,9 +22,9 @@ echo "db.analytics.aggregate(
       "sum_imps":{$sum:"$imps"}
     }
   }
-);" | /usr/bin/time --portability mongo $DATABASE
+);' | /usr/bin/time --portability mongo $DATABASE
 
-echo "db.analytics.aggregate(
+echo 'db.analytics.aggregate(
   { 
     $project: {
       "imps":1
@@ -36,9 +36,9 @@ echo "db.analytics.aggregate(
       "sum_imps":{$sum:"$imps"}
     }
   }
-);" | /usr/bin/time --portability mongo $DATABASE
+);' | /usr/bin/time --portability mongo $DATABASE
 
-echo "db.analytics.aggregate(
+echo 'db.analytics.aggregate(
   {
     $match: {
         "ymdh": {
@@ -57,9 +57,9 @@ echo "db.analytics.aggregate(
       "sum_clicks":{$sum:"$clicks"}
     }
   }
-);" | /usr/bin/time --portability mongo $DATABASE
+);' | /usr/bin/time --portability mongo $DATABASE
 
-echo "db.analytics.aggregate(
+echo 'db.analytics.aggregate(
   {
     $match: {
         "ymdh": {
@@ -78,9 +78,9 @@ echo "db.analytics.aggregate(
       "sum_clicks":{$sum:"$clicks"}
     }
   }
-);" | /usr/bin/time --portability mongo $DATABASE
+);' | /usr/bin/time --portability mongo $DATABASE
 
-echo "db.analytics.aggregate(
+echo 'db.analytics.aggregate(
   {
     $match: {
         "ymdh": {
@@ -99,9 +99,9 @@ echo "db.analytics.aggregate(
       "avg_cpm":{$avg:"1000 * $revenue / $imps"}
     }
   }
-);" | /usr/bin/time --portability mongo $DATABASE
+);' | /usr/bin/time --portability mongo $DATABASE
 
-echo "db.analytics.aggregate(
+echo 'db.analytics.aggregate(
   {
     $match: {
         "ymdh": {
@@ -120,4 +120,4 @@ echo "db.analytics.aggregate(
       "avg_cpm":{$avg:"1000 * $revenue / $imps"}
     }
   }
-);" | /usr/bin/time --portability mongo $DATABASE
+);' | /usr/bin/time --portability mongo $DATABASE
