@@ -1,7 +1,8 @@
 blog-mysql-vertica-mongodb-impala
 =================================
 
-Comparing MySQL, Vertica, MongoDB and Impala
+Comparing MySQL, Vertica, MongoDB, Hive and Impala.
+Blog post: http://chimpler.wordpress.com/2013/05/10/installing-and-comparing-mysqlmariadb-mongodb-vertica-hive-and-impala-part-1/
 
 datagen
 =======
